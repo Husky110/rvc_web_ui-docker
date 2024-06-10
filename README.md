@@ -1,7 +1,10 @@
 # RVC-WebUI-Docker
+## Newbie-Tutorials
+For newbies there is a tutorial available for this repo! [Check it out!](documentation/for_dummies_english.md)  
+And now for the technical bits:
 ## Purpose
 This repo serves the purpose to make the build-process public, that is beeing used to build my RVC-WebUI-Containers.
-(See https://hub.docker.com/r/cherrymint/rvc_webui)  
+(See [DockerHub](https://hub.docker.com/r/cherrymint/rvc_webui))  
 I do not add a licence, since I am only taking the repos by RVC_Boss and fumiama, pull them, download the models and then do the rest.  
 So what you do with them, is up to you, but I advise on checking if your local laws on copy- and personality-rights.
 
@@ -27,12 +30,16 @@ The created docker-images setup everything you need and even add Tensorboard. Ho
 - https://rentry.org/RVC_making-models (in-depth guide on training with Tensorboard - unfortunately the image-links are broken)
 
 ### Local usage
-If you wanna use them locally, just open 0.0.0.0:7875 for the WebUI and 0.0.0.0:7865 for tensorboard. Make sure you have build the containers with your ssh-public-key! 
+If you wanna use them locally, just open 0.0.0.0:7875 for the WebUI, 0.0.0.0:7865 for tensorboard and 0.0.0.0:8080 for filebrowser. 
 Build the images by using this: 
 - fumiama: `docker build -t mydockerregistry/myusername/mycontainername:mytagname .`
 - RVC_Boss: `docker build -t mydockerregistry/myusername/mycontainername:mytagname --build-arg REPO="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI" .`  
 
-To run the container use: `docker run -d -p 7875:7875 -p 7865:7865 -e PUBLIC_KEY="<my_public_key>" mydockerregistry/myusername/mycontainername:mytagname`
+To run the container use: `docker run -d -p 7875:7875 -p 7865:7865 -p 7895:7895 mydockerregistry/myusername/mycontainername:mytagname`
+
+### If you wanna use ssh instead of the Filebrowser
+- add `-p 22:22` to your docker run-command
+- add `-e PUBLIC_KEY="<MY PUBLIC KEY>"` to your docker run-command and connect through it.
 
 ### Possible Questions
 #### Why no volume?
@@ -42,4 +49,12 @@ Since I use those containers for training or one-time-interference, I don't need
 Again - I don't need it. You can do this yourself - I believe in you. :)
 
 #### Why is there no info on the mangio-tag in your DockerHub-Repo?
-The mangio-tag was an old version I had locally lying around on my homelab. I do not update that tag. But funny enough - the base-dockerfile is the one I used for that tag. :) 
+The mangio-tag was an old version I had locally lying around on my homelab. I do not update that tag. But funny enough - the base-dockerfile is the one I used for that tag. :)
+
+# Changelog:
+## 2024-06-10:
+- Removed the pip-installation for tensorboard, since all Repos bring them themselves
+- Removed the need for an ssh-key to make this more "dummy"-approachable
+- Added a filebrowser
+- Added a Tutorial for dummies
+- Made Templates on runpod.io
