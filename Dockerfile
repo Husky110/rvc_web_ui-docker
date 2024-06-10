@@ -21,8 +21,6 @@ RUN mkdir dataset audios audio-outputs
 
 RUN pip3 install -r requirements.txt
 
-RUN pip3 install tensorboard tensorflow
-
 RUN apt-get update
 
 RUN apt-get install -y ffmpeg supervisor
