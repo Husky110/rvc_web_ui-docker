@@ -3,14 +3,21 @@
 For newbies there is a tutorial available for this repo! [Check it out!](documentation/for_dummies_english.md)  
 And now for the technical bits:
 ## Purpose
-This repo serves the purpose to make the build-process public, that is beeing used to build my RVC-WebUI-Containers.
+This repo serves the purpose to make the build-process public, that is beeing used to build my RVC-WebUI-Containers on runpod.
 (See [DockerHub](https://hub.docker.com/r/cherrymint/rvc_webui))  
-I do not add a licence, since I am only taking the repos by RVC_Boss and fumiama, pull them, download the models and then do the rest.  
+I would kindly ask you to use the exported versions on runpod.io (just use their Explore-Feature and search for RVC. The ones with cherrymint in them are mine). With this you support me. :)   
+I do not add a licence to this project, since I am only taking the repos, pull them, download the models and then upload them to Dockerhub.    
 So what you do with them, is up to you, but I advise on checking if your local laws on copy- and personality-rights.
 
 ## Main-Repos:
  - RVC_Boss: https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI
  - fumiama: https://github.com/fumiama/Retrieval-based-Voice-Conversion-WebUI  
+ - Applio: https://github.com/IAHispano/Applio
+
+Credits and Cudos go to those repos and their respective contributers.
+
+## External Repos:
+- https://github.com/filegator/filegator
 
 Credits and Cudos go to those repos and their respective contributers.
 
@@ -31,9 +38,12 @@ The created docker-images setup everything you need and even add Tensorboard. Ho
 
 ### Local usage
 If you wanna use them locally, just open 0.0.0.0:7875 for the WebUI, 0.0.0.0:7865 for tensorboard and 0.0.0.0:8080 for filebrowser. 
-Build the images by using this: 
-- fumiama: `docker build -t mydockerregistry/myusername/mycontainername:mytagname .`
-- RVC_Boss: `docker build -t mydockerregistry/myusername/mycontainername:mytagname --build-arg REPO="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI" .`  
+Build the images by using this:
+`docker build -t mydockerregistry/myusername/mycontainername:mytagname --build-arg REPO="<MYREPO>" .`  
+MYREPO here supports this:
+- `web_ui-rvc_boss` will build the [RVC-WebUI by rvc_boss](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI)
+- `web_ui-fumiama` will build the [RVC-WebUI by fumiama](https://github.com/fumiama/Retrieval-based-Voice-Conversion-WebUI)
+- `applio` will build the [Applio-Project by IAHispano](https://github.com/IAHispano/Applio)
 
 To run the container use: `docker run -d -p 7875:7875 -p 7865:7865 -p 7895:7895 mydockerregistry/myusername/mycontainername:mytagname`
 
@@ -52,6 +62,11 @@ Again - I don't need it. You can do this yourself - I believe in you. :)
 The mangio-tag was an old version I had locally lying around on my homelab. I do not update that tag. But funny enough - the base-dockerfile is the one I used for that tag. :)
 
 # Changelog:
+## 2024-06-13
+- Changed Filemanager from filebrowser a PHP-Based one (python filebrowser didn't work...) (taken from https://github.com/filegator/filegator)
+## 2024-06-12
+- Eased up build-process (You can now build via a tag-name)
+- Added image-tag for [Applio](https://github.com/IAHispano/Applio)
 ## 2024-06-10:
 - Removed the pip-installation for tensorboard, since all Repos bring them themselves
 - Removed the need for an ssh-key to make this more "dummy"-approachable
