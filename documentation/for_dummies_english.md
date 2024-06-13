@@ -19,14 +19,15 @@ I will provide you with a step-by-step tutorial on how to set everything up:
    - RVC-WebUI - RVC_BOSS - This is the "OG" in RVC. This repo is the most stable and reliable.
    - RVC-WebUI - FUMIAMA - This repo is a fork of RVC_BOSS. This repo will be more quick and open to new features in the future.
    - RVC-WebUI - MANGIO - This repo is only for archive purposes! Mangio used to be a pretty good algorithm for training, that is why I keep it up. **I STRONGLY RECOMMEND AGAINST USING IT, UNLESS YOU KNOW WHAT YOU ARE DOING!**
+   - RVC-Applio - APPLIO - This one is made by IAHispano and is an alternative to RVC-WebUI. Their docs can be checked out [here](https://applio.org/guides).
 4. Click on the template of your choise and select "Deploy".
 5. Here it becomes a bit tricky, since you have to select the GPU for what you need.
    - **I just want to change my voice...:** Cool - Switch on top the `Community Cloud`, pick anything cheap that has at least 8 GB VRAM, set a podname, leave it at 1 GPU, leave it "On-Demand" and click on "Deploy On-Demand". Just wait till all is done and proceed with the tutorial.
    - **I want to train my own models!:** Are you sure? Well... Okay... Before you do anything, research about how training actually works! Great resources can be found on AI Hub and on this Github-Repo's main-page. Pick an RTX A4000 or RTX A4500. Try to get 3 GPUs. In RVC_WebUI set the number of CPU-Processes to 24 and the Batchsize to 12. Rest is the same. (This info is based on my own experience! If you find a better combination that can beat 40 min. trainingdata in 7 seconds, let me know!)
 6. Let the pod build up, click on `Connect` and start using the pod. You will have 3 Ports you can use:  
    - 7865: RVC-WebUI (the WebUI itself)
-   - 7875: Tensorboard (only relevant for training)
-   - 7895: Filebrowser (to upload your models)
+   - 7875: Tensorboard (only relevant for training - a good guide on how to use it can be found [here](https://docs.aihub.wtf/rvc/resources/epochs--tensorboard/#usage-guide))
+   - 7895: Filebrowser (to upload your models, datasets and download trained models)
 
 ## Warnings
 Before I tell you how you can change your voice - let me be clear on some things:
@@ -39,6 +40,7 @@ Okay - Interfering is pretty straight forward and self-explaining, once you have
 2. Navigate to .assets/weights
 3. Upload your models
 4. Inside the RVC-WebUI hit "Refresh models"
-5. Done :)
+5. Upload your voice-file to the UI and set all the settings
+6. Done :)
 
 Hope this was helpfull to you. :)
