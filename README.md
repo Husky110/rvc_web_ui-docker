@@ -12,6 +12,7 @@ So what you do with them, is up to you, but I advise on checking if your local l
 ## Main-Repos:
  - RVC_Boss: https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI
  - fumiama: https://github.com/fumiama/Retrieval-based-Voice-Conversion-WebUI  
+ - mangio: https://github.com/Mangio621/Mangio-RVC-Fork
  - Applio: https://github.com/IAHispano/Applio
 
 Credits and Cudos go to those repos and their respective contributers.
